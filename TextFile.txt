@@ -1,0 +1,110 @@
+#This should be the first line of the cell
+%%writefile myfile.txt
+#then we can write a plain text here
+Hello this is a text file
+This is the second line
+This is the third line
+
+myfile = open('myfile.txt')#no error as file is there and exist
+
+myfile = open('whoops_wrongt.txt')# will give error as there is no such file, File not found error
+
+#will return the content of file
+myfile.read()#returns everything as a single string so strng will have backspace init
+
+#as we have read the file now the cursor is at the end of line so if we try to read the file againg,
+#it will return an empty file
+myfile.read()# ''
+
+##we have to set the cursor back to the top line
+myfile.seek(0)# will give 0 then
+myfile.read() # will give content
+
+
+#can be assigned the content
+myfile.seek(0)
+contents = myfile.read()
+
+myfile.seek(0)
+myfile.readlines()#grab the list of text
+
+myfile.close()# close the file in order not to get error
+
+
+
+
+if we open a file in this path then we dont have to close it
+with open('myfile.txt') as my_new_file:
+     contents = my_new_file.read()
+#we can read the content with contents variable we saved above
+contents
+
+
+
+#mode='r' =>read only
+#mode='w' =>write only(will overwrite files & creates new if the file doesnt exist)
+#mode='a' =>append only(will add on to files), a new line to
+#mode='r+' => reading and writing
+#mode='w+' => writing & reading (overwrites existing files or creates a new file0
+
+with open('myfile.txt', mode='r') as myfile:
+     contents =myfile.read() #will return the content
+
+with open('defg.text', mode='w') as f :#write the file
+     f.write('I created this file')
+with open('defg.txt', mode='r') as f:#read the created file
+     print(f.read())
+
+#if we change the mode from read to write, will get error of :UnsupportedOperation: Not readable
+with open('myfile.txt', mode='w')  as myfile:
+     contents =myfile.read()
+
+
+#####################
+##FILE LOCATIONS
+#if you want to open another file at another locations on your computer, simple pass in the entire file path
+For Windows you need to use double \ so python doesn't treat the second \ as an escape character,
+a path file is in the form
+myfile = open("C:\\Users\\UserName\\Folder\\test.txt")
+
+For Mac and Linux, use slashes in the opposite direction
+myfile = open("/Users/YouUserName/Folder/myfile.txt")
+
+
+
+
+########Links for Practice
+Basic Practice:
+
+http://codingbat.com/python
+
+More Mathematical (and Harder) Practice:
+
+https://projecteuler.net/archives
+
+List of Practice Problems:
+
+http://www.codeabbey.com/index/task_list
+
+A SubReddit Devoted to Daily Practice Problems:
+
+https://www.reddit.com/r/dailyprogrammer
+
+A very tricky website with very few hints and touch problems (Not for beginners but still interesting)
+
+http://www.pythonchallenge.com/
+
+
+Github link for this course is :
+https://github.com/Pierian-Data/Complete-Python-3-Bootcamp
+
+
+#for game creation probably
+Other links that may interest you:
+
+https://www.reddit.com/r/learnpython/comments/7ay83p/war_card_game/
+https://codereview.stackexchange.com/questions/131174/war-card-game-using-classes
+https://gist.github.com/damianesteban/6896120
+https://lethain.com/war-card-game-in-python/
+https://hectorpefo.github.io/2017-09-13-Card-Wars/
+https://www.wimpyprogrammer.com/the-statistics-of-war-the-card-game
